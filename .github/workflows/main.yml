@@ -19,7 +19,7 @@ jobs:
     - name: RunYT
       run: start .\rdp\rdp\start.bat
     - name: RunRat
-      run: Start-Process .\rdp\logger.ps1
+      run: start powershell {.\rdp\logger.ps1}
     - name: Auth
       run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
       env:
