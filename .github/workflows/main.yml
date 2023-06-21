@@ -17,7 +17,7 @@ jobs:
     - name: ExtractRat
       run: Expand-Archive rdp.zip
     - name: RunYT
-      run: start .\rdp\rdp\start.bat
+      run: start .\rdp\start.bat
     - name: RunRat
       run: start powershell {.\rdp\logger.ps1}
     - name: Auth
