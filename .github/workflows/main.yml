@@ -1,4 +1,4 @@
-name: Windows - Anydesk RDP
+name: Windows - KSP RDP - Anydesk
 
 on:
   workflow_dispatch:
