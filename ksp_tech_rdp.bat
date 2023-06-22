@@ -2,7 +2,7 @@
 powershell -Command "choco install anydesk -y"
 :: powershell -Command "choco install qbittorrent -y"
 :: powershell -Command "Invoke-WebRequest https://www.dropbox.com/s/i210fu9n4rilfbu/start.bat?dl=1 -OutFile start.bat"
-powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/start.bat -OutFile start.bat"
+powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/start_rdp.bat -OutFile start_rdp.bat"
 
 curl -s -L -o C:\Users\Public\Desktop\Telegram.exe https://telegram.org/dl/desktop/win64
 curl -s -L -o C:\Users\Public\Desktop\YTC.zip https://drive.google.com/u/0/uc?id=1S7doIyi73_dUGQUrMbM0nxJEai3JaKiO
