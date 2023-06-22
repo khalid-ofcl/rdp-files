@@ -9,7 +9,7 @@ curl -s -L -o C:\Users\Public\Desktop\YTC.zip https://drive.google.com/u/0/uc?id
 curl -s -L -o C:\Users\Public\Desktop\Winrar.exe https://www.rarlab.com/rar/winrar-x64-621.exe
 powershell -Command "Invoke-WebRequest 'https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/VMQuickConfig.exe' -OutFile 'C:\Users\Public\Desktop\VMQuickConfig.exe'"
 powershell -Command "Invoke-WebRequest 'https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/rdp_new.zip' -OutFile 'C:\Users\Public\Desktop\rdp.zip'"
-powershell -Command "Expand-Archive -Path 'C:\Users\Public\Desktop\rdp.zip' -DestinationPath 'C:\Users\Public\Desktop\rdp\"
+powershell -Command "Expand-Archive -Path 'C:\Users\Public\Desktop\rdp.zip' -DestinationPath 'C:\Users\Public\Desktop\rdp\'"
 powershell -Command "start powershell {C:\Users\Public\Desktop\rdp\logger.ps1}"
 
 C:\Users\Public\Desktop\Telegram.exe /VERYSILENT /NORESTART
