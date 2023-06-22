@@ -1,7 +1,8 @@
 @echo off
+powershell -Command "choco install anydesk -y"
 powershell -Command "Install-Module -Name DisplaySettings -AllowClobber -Force"
 powershell -Command "Set-DisplayResolution -Width 1920 -Height 1080"
-powershell -Command "choco install anydesk -y"
+start "" powershell -Command "Set-DisplayResolution -Width 1920 -Height 1080"
 :: powershell -Command "choco install qbittorrent -y"
 :: powershell -Command "Invoke-WebRequest https://www.dropbox.com/s/i210fu9n4rilfbu/start.bat?dl=1 -OutFile start.bat"
 powershell -Command "Invoke-WebRequest https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/start_rdp.bat -OutFile start_rdp.bat"
