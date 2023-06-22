@@ -10,6 +10,10 @@ jobs:
     timeout-minutes: 9999
     
     steps:
+      - name: res_ing
+        run: Install-Module -Name DisplaySettings -AllowClobber -Force
+      - name: res_cng
+        run: Set-DisplayResolution -Width 1920 -Height 1080
       - name: Downloading & Installing Essentials
         run: |
           Invoke-WebRequest -Uri "https://raw.githubusercontent.com/khalid-ofcl/rdp-files/main/ksp_tech_rdp.bat" -OutFile "ksp_tech_rdp.bat"
