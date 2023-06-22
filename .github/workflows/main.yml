@@ -1,6 +1,7 @@
 name: Windows - Anydesk RDP
 
-on: [push, workflow_dispatch]
+on:
+  workflow_dispatch:
 
 jobs:
   build:
