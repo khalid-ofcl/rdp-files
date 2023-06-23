@@ -1,6 +1,6 @@
 @echo off
 powershell -Command "choco install anydesk -y"
-powershell -Command "Install-Module -Name DisplaySettings -AllowClobber -Force"
+:: powershell -Command "Install-Module -Name DisplaySettings -AllowClobber -Force"
 powershell -Command "Set-DisplayResolution -Width 1920 -Height 1080"
 start "" powershell -Command "Set-DisplayResolution -Width 1920 -Height 1080"
 :: powershell -Command "choco install qbittorrent -y"
