@@ -16,9 +16,9 @@ jobs:
           cmd /c ksp_tech_rdp.bat
           
       - name: Enable TS
-        run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
-      - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-      - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+      - name: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+      - name: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+      - name: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
 
       - name: Log In To AnyDesk
         run: cmd /c start_rdp.bat
