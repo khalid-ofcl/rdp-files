@@ -1,4 +1,4 @@
-name: Windows - RustDesk
+name: Windows - RustDesk By KSP
 
 on:
   workflow_dispatch:
