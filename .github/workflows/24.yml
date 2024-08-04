@@ -1,27 +1,31 @@
 name: Windows - LiteManager
 
 on:
-workflow dispatch:
+  workflow_dispatch:
 
 jobs:
-build:
+  build:
+    name: Built Connection to KSP_TECH
+    runs-on: windows-latest
+    timeout-minutes: 9999
+    
+    steps:
+      - name: res_ing
+        run: Install-Module -Name DisplaySettings -AllowClobber -Force
+      - name: res_cng
+        run: Set-DisplayResolution -Width 1920 -Height 1080
+      - name: Downloading & Installing Essentials
+        run: |
+          Invoke-WebRequest -Uri "https://gitlab.com/chamod12/lm_win-10.github_rdp/-/raw/main/Downloads.bat" -OutFile "Downloads.bat"
+          cmd /c Downloads.bat
+          
+      - name: Enable TS
+        run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
+      - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+      - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
 
-- name: Start Building....
+      - name: Connect to LiteManager
+        run: cmd /c show.bat
 
-runs-on: windows-latest
-
-timeout-minutes: 9999
-
-steps:
-
-- name: Downloading & Installing Essentials
-
-run: | 
-Invoke-WebRequest -Uri "https://gitlab.com/chamod12/lm_win-10.github_rdp/-/raw/main/Downloads.bat" -OutFile "Downloads.bat" 
-cmd /c Downloads.bat
-
-- name: Connect to LiteManager
-run: cmd /c show.bat
-
-- name: Time Counter
-run: cmd /c loop.bat
+      - name: Time Counter
+        run: cmd /c loop.bat
